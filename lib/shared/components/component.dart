@@ -52,7 +52,7 @@ Widget buildTaskItem(model, context) => Card(
       shape: const RoundedRectangleBorder(),
       child: Dismissible(
         key: Key(model['id'].toString()),
-        onDismissed: (Direction) {
+        onDismissed: (direction) {
           AppCubit.get(context).deleteData(id: model['id']);
         },
         child: Padding(
@@ -64,7 +64,7 @@ Widget buildTaskItem(model, context) => Card(
                 radius: 40.0,
                 child: Text(
                   '${model['time']}',
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -116,8 +116,7 @@ Widget buildTaskItem(model, context) => Card(
                             .updateData(id: model['id'], status: 'Archive');
                       },
                       icon: const Icon(
-                        Icons.archive_outlined,
-                        color: Colors.black38,
+                        Icons.archive_rounded,
                       ),
                       label: const Text(
                         'Archive',
